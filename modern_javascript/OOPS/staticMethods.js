@@ -42,3 +42,40 @@ console.log(Counter.increment());
 console.log(Counter.increment());
 console.log(Counter.increment());
 console.log(Counter.decrement());
+
+
+// example: static variable and static method
+
+class Car {
+    static cars = [];
+
+    constructor(brand, model) {
+        this.brand = brand;
+        this.model = model;
+
+        Car.cars.push({
+            brand: this.brand,
+            model: this.model
+        })
+    }
+
+    static info() {
+        return `Car are vehicle with four wheels.`;
+    }
+
+    static compare(car1, car2) {
+        return car1.brand === car2.breand ? 'same brand' : 'different brands';
+    }
+
+    static getCarsList() {
+        return this.cars;
+    }
+}
+
+const car1 = new Car("Tyota", "Hilux");
+const car2 = new Car("Honda", "Civic");
+
+console.log(Car.info());
+console.log(Car.compare(car1, car2));
+
+console.log(Car.getCarsList());
