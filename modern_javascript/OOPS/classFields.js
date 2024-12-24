@@ -36,3 +36,14 @@ class Bike {
 const myBike = new Bike("KTM", "Duke 125");
 console.log(myBike.getDetails());
 // console.log(myBike.#brand); // SyntaxError: Private field '#brand' must be declared in an enclosing class
+
+/**
+ * Why use Private Fields?
+ * -> Encapsulation: keeps implementation details hidden from external code.
+ * -> Data Security: Prevents accidental or unauthorized modification of sensitive data.
+ * -> Clear API: Expose only what is necessary to the external code.
+ * 
+ * Summary:
+ * -> Use public fields for properties that are part of the class's public API.
+ * -> Use private fields for properties that should not be directly accessed or modified from outside the class.
+ */
