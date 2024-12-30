@@ -38,3 +38,28 @@ console.log(Object.prototype.__proto__);
  * Animal.prototype.__proto__ -> Object.prototype
  * Object.prototype.__proto__ -> null
  */
+
+const animal = {
+    speak() {
+        return console.log(`${this.name} make a noise.`);
+    }
+};
+
+const cat = Object.create(animal); // cat's prototype is set to animal
+cat.name = "cat";
+
+cat.speak();
+
+// problem: Adding a method to animal.__proto__ is equivalent to adding it to Object.prototype.
+animal.__proto__.speaks = function () {
+    console.log(`${this.name} makes noise.`);
+};
+
+// correct way of is setting method to that(animal) object is thatObject.method(); without using '__proto__' 
+
+cat.speaks();
+
+const obj = { name: "mush" };
+
+// checking speaks() available on all objects
+obj.speaks();
