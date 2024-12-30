@@ -8,6 +8,10 @@
  * => A property of every object in javascript.
  * => Points to the prototype object from which the object inherits properties and methods.
  * => used to access the prototype chain for an object.
+ * 
+ * Modifying Object.prototype (via .__proto__) is strongly discouraged because:
+ * => it affects all the objects in you program.
+ * => it can cause unpredictable behaviour and conflicts with other libraries or code.
  */
 
 function Animal(name) {
@@ -63,3 +67,27 @@ const obj = { name: "mush" };
 
 // checking speaks() available on all objects
 obj.speaks();
+
+
+/**
+ * `.prototype` in classes:
+ * => In ES6 classes, prototype methods are defined inside the class body. These methods are equivalent to defining them on `.prototype`
+ */
+
+class Bike {
+    constructor(name, color) {
+        this.name = name;
+        this.color = color;
+    }
+
+    // Prototype method
+    getBikeInfo() {
+        return `${this.name} bike is ${this.color}`;
+    }
+}
+
+const bike = new Bike("duke 125", "orange");
+console.log(bike.getBikeInfo());
+
+// verifying `.prototype`
+console.log(Bike.prototype.getBikeInfo);
