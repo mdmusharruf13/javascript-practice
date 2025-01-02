@@ -5,12 +5,9 @@
 
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
-    .then((result) => {
-        return result[0];
-    })
-    .then((user) => {
-        console.log(user)
-        return fetch(`https://jsonplaceholder.typicode.com/posts/${user.id}/comments`);
+    .then((users) => {
+        console.log("users: ", users.splice(0, 3));
+        return fetch(`https://jsonplaceholder.typicode.com/posts/${users[0].id}/comments`);
     })
     .then(response => response.json())
     .then(result => {
