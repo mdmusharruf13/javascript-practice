@@ -20,3 +20,20 @@ myPromise
     .catch(error => {
         console.log(error);
     })
+
+// chained computation
+new Promise((resolve, reject) => {
+    resolve(2);
+})
+    .then((num) => {
+        console.log(`step 1: ${num}`);
+        return num * 2;
+    })
+    .then((result) => {
+        console.log(`step 2: ${result}`);
+        return result + 3;
+    })
+    .then(finalResult => {
+        console.log(`step 3: ${finalResult}`);
+    })
+    .catch(error => console.log(error));
