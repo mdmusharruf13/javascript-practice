@@ -19,3 +19,22 @@ fetch('https://jsonplaceholder.typicode.com/posts')
         console.log("todos: ", result.splice(0, 3));
     })
     .catch(error => console.log(error));
+
+// Nested Delays - Simulating sequential delays using setTimeout wrapped in promises.
+
+function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+delay(1000)
+    .then(() => {
+        console.log(`1 second passed`);
+        return delay(2000);
+    })
+    .then(() => {
+        console.log(`2 more seconds passed`);
+        return delay(3000);
+    })
+    .then(() => {
+        console.log(`3 more seconds passed`);
+    })
