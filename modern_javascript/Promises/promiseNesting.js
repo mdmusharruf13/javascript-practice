@@ -38,3 +38,26 @@ delay(1000)
     .then(() => {
         console.log(`3 more seconds passed`);
     })
+
+
+// file upload simulation - one file depends on another's success.
+function uploadFile(file) {
+    return new Promise((resolve, reject) => {
+        console.log(`Uploading ${file}...`);
+        setTimeout(() => resolve(`${file} uploaded`), 1000);
+    });
+}
+
+uploadFile("file1.txt")
+    .then((result) => {
+        console.log(result);
+        return uploadFile("file2.txt");
+    })
+    .then((result2) => {
+        console.log(result2);
+        return uploadFile("file3.txt");
+    })
+    .then((result3) => {
+        console.log(result3);
+    })
+    .catch(error => console.log(error));
