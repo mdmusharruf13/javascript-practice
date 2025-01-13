@@ -1,21 +1,21 @@
-// traditional function
-function print(msg) {
-    console.log(msg);
-}
+// // traditional function
+// function print(msg) {
+//     console.log(msg);
+// }
 
-// Arrow function
-const logMsg = (msg) => {
-    console.log(msg);
-}
+// // Arrow function
+// const logMsg = (msg) => {
+//     console.log(msg);
+// }
 
-print("javascript is awesome!")
+// print("javascript is awesome!")
 
 
-const sumOfTwo = (num1, num2) => {
-    return num1 + num2;
-}
+// const sumOfTwo = (num1, num2) => {
+//     return num1 + num2;
+// }
 
-logMsg(sumOfTwo(2, 3));
+// logMsg(sumOfTwo(2, 3));
 
 
 
@@ -31,4 +31,20 @@ const fn1 = () => {
 }
 
 fn1();
+
+function Arrow(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Arrow.prototype.getInfo1 = function () {
+    return `${this.name} is ${this.age} years old`;
+}
+Arrow.prototype.getInfo2 = () => {
+    return `${this.name} is ${this.age} years old`;
+}
+
+const arrow1 = new Arrow("batman", 50);
+console.log(arrow1.getInfo1());
+console.log(arrow1.getInfo2());
 
