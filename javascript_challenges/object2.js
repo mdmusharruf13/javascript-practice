@@ -45,3 +45,22 @@ const shape = {
 
 console.log(shape.diameter());
 console.log(shape.perimeter());
+
+
+// destructuring
+let user = {
+    name: "musharruf",
+    age: 30,
+    fullName: {
+        firstName: "Md Musharruf",
+        lastName: "Nawaz"
+    }
+};
+
+// nested destructuring
+const { fullName: { firstName } } = user;
+console.log(firstName);
+
+// renaming nested destructured variable
+const { fullName: { firstName: userName } } = user;
+console.log(userName)
