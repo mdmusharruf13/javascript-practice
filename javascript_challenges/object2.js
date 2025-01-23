@@ -73,3 +73,46 @@ let tempObj;
 tempObj = obj1;
 tempObj.greeting = "Hello!";
 console.log(tempObj.greeting);
+
+// changing reference
+let person = { name: "mush" };
+const members = [person]; // reference stored
+person = null; // reference changed
+
+console.log(members);
+
+
+
+const value = { num: 10 };
+
+const multiply = (x = { ...value }) => {
+    console.log((x.num *= 2));
+}
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+
+
+// change property and reference
+
+function changeAgeAndReference(person) {
+    // person is local variable that holds the reference of passed object(personObj1)
+    person.age = 40;
+    person = {
+        name: "mush",
+        age: 50
+    }
+    return person;
+}
+
+const personObj1 = {
+    name: "musharruf",
+    age: 30
+};
+
+const personObj2 = changeAgeAndReference(personObj1);
+
+console.log(personObj1);
+console.log(personObj2);
