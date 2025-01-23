@@ -32,3 +32,22 @@ btn.addEventListener(
         console.count("Submitted...");
     }, 1000)
 );
+
+
+// second way
+function debounce2(msg) {
+    console.count(msg);
+}
+
+const button = document.getElementById("btn-reset");
+
+let timer;
+button.addEventListener("click", () => {
+
+    if (timer) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+        debounce2("Reset...");
+    }, 2000);
+});
