@@ -64,3 +64,12 @@ console.log(firstName);
 // renaming nested destructured variable
 const { fullName: { firstName: userName } } = user;
 console.log(userName)
+
+
+// object referencing
+let obj1 = { greeting: "Hey!" };
+let tempObj;
+
+tempObj = obj1;
+tempObj.greeting = "Hello!";
+console.log(tempObj.greeting);
