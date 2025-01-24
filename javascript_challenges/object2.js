@@ -131,3 +131,28 @@ setTimeout(Student.getInfo, 1000);
 setTimeout(() => {
     Student.getInfo();
 }, 1000);
+
+
+var length = 4;
+
+function callback() {
+    console.log("length is ", this.length);
+}
+
+const dataObj = {
+    length: 5,
+    getLength(fn) {
+        fn();
+    }
+}
+
+dataObj.getLength(callback);
+
+const dataObj2 = {
+    length: 5,
+    getLength() {
+        arguments[0]();
+    }
+}
+
+dataObj2.getLength(callback, 1, 2);
