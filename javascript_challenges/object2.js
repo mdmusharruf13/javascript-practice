@@ -116,3 +116,18 @@ const personObj2 = changeAgeAndReference(personObj1);
 
 console.log(personObj1);
 console.log(personObj2);
+
+
+const Student = {
+    name: "musharruf",
+    getInfo() {
+        console.log('name is ', this.name);
+    }
+}
+
+setTimeout(Student.getInfo, 1000);
+
+// solution to the above callback inside setTimeout();
+setTimeout(() => {
+    Student.getInfo();
+}, 1000);
