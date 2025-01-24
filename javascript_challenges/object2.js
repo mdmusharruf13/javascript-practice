@@ -156,3 +156,28 @@ const dataObj2 = {
 }
 
 dataObj2.getLength(callback, 1, 2);
+
+
+// function chaining with 'this' keyword
+const calc = {
+    total: 5,
+    add(num) {
+        this.total += num;
+        return this;
+    },
+    multiply(num) {
+        this.total *= num;
+        return this;
+    },
+    subtract(num) {
+        this.total -= num;
+        return this;
+    },
+    divide(num) {
+        this.total /= num;
+        return this;
+    },
+};
+
+const result = calc.add(10).multiply(2).subtract(5).divide(2);
+console.log("total is ", calc.total);
