@@ -77,3 +77,14 @@ checkPswd(user1.loginSuccessful, user1.loginFailure);
 checkPswd(user1.loginSuccessful.bind(user1), user1.loginFailure.bind(user1));
 
 checkPswd(() => { user1.loginSuccessful() }, () => { user1.loginFailure() });
+
+
+const user2 = {
+    name: "mush",
+    login(check) {
+        console.log(check ? `${this.name} logged in` : `${this.name} enter correct password`);
+    }
+}
+
+
+checkPswd(user2.login.bind(user2, true), user2.login.bind(user2, false));
