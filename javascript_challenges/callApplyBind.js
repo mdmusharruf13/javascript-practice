@@ -53,3 +53,27 @@ function logName() {
 
 func = fn.bind({ name: "mush" }).bind({ name: "musharruf" });
 func();
+
+
+// bind a callback function
+function checkPswd(success, failure) {
+    const pswd = prompt("enter password");
+    if (pswd == "321") success();
+    else failure();
+}
+
+const user1 = {
+    name: "musharruf",
+    loginSuccessful() {
+        console.log(`${this.name} has logged in`);
+    },
+    loginFailure() {
+        console.log(`${this.name} enter correct password`);
+    }
+}
+
+checkPswd(user1.loginSuccessful, user1.loginFailure);
+
+checkPswd(user1.loginSuccessful.bind(user1), user1.loginFailure.bind(user1));
+
+checkPswd(() => { user1.loginSuccessful() }, () => { user1.loginFailure() });
