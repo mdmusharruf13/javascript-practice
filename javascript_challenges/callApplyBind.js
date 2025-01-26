@@ -32,3 +32,15 @@ console.log(Math.max(nums)); // NaN
 
 console.log(Math.max.apply(null, nums));
 console.log(Math.min.apply(null, nums));
+
+
+// bound function
+function fn() {
+    console.log(this);
+}
+
+let user = {
+    method: fn.bind(null)
+}
+
+user.method();
