@@ -44,3 +44,12 @@ let user = {
 }
 
 user.method();
+
+
+// bind chaining
+function logName() {
+    console.log(this.name);
+}
+
+func = fn.bind({ name: "mush" }).bind({ name: "musharruf" });
+func();
