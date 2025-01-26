@@ -13,3 +13,11 @@ function printAnimals(i) {
 for (let obj of animals) {
     printAnimals.call(obj);
 }
+
+// concatenating array using apply()
+const arr = ['a', 'b'];
+const elements = [0, 1, 2, 3];
+
+arr.push.apply(arr, elements);
+
+console.log(arr);
