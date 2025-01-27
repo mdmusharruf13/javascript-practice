@@ -17,3 +17,18 @@ Promise.all(promises)
     .catch(error => {
         console.error(error);
     });
+
+
+const promises2 = [
+    Promise.resolve("first"),
+    Promise.reject("cannot resolve this promise", this),
+    Promise.resolve("third"),
+];
+
+Promise.all(promises2)
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.error(error);
+    });
