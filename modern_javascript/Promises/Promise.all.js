@@ -51,3 +51,20 @@ Promise.all([])
     .catch(error => {
         console.error(error);
     });
+
+
+/**
+ * case 4: Non-Promise values in the Array
+ * If the array contains non-promise values, they are treated as resolved promises, and Promise.all() resolves with their values.
+ */
+const promise1 = Promise.resolve(10);
+const promise2 = "second value";
+const promise3 = Promise.resolve(30);
+
+Promise.all([promise1, promise2, promise3])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.error(error);
+    });
