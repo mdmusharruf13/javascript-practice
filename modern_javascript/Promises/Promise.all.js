@@ -78,3 +78,20 @@ Promise.all([promise1, promise2, promise3])
 const neverSettledPromise = new Promise(() => { });
 Promise.all([Promise.resolve("A"), neverSettledPromise])
     .then(value => { console.log(value) });
+
+
+/**
+ * Promies Resolves after delay
+ * all promises are returned after that delay
+ */
+
+const delayPromise = new Promise((resolve) => {
+    setTimeout(resolve, 5000, "Delayed");
+});
+Promise.all([Promise.resolve("A"), delayPromise])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.error(error);
+    });
