@@ -68,3 +68,13 @@ Promise.all([promise1, promise2, promise3])
     .catch(error => {
         console.error(error);
     });
+
+
+/**
+ * One or More Promises never settle
+ * if any promise never resolves or rejects, Promise.all() will hang indefinitely and never resolve/reject.
+ */
+
+const neverSettledPromise = new Promise(() => { });
+Promise.all([Promise.resolve("A"), neverSettledPromise])
+    .then(value => { console.log(value) });
