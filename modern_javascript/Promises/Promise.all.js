@@ -112,3 +112,23 @@ Promise.all([Promise.resolve("A"), delayedRejectedPromise])
     .catch(error => {
         console.log(error);
     });
+
+
+/**
+ * Non-Iterable passed to Promise.all()
+ * if the argument is not iterable (eg: null, undefined or primitive), it throws a TypeError.
+ */
+
+try {
+    Promise.all(null)
+        .then((value) => {
+            console.log(value);
+        }, (err) => {
+            console.error("not iterable are not accepted");
+        })
+        .catch(error => {
+            console.log(error);
+        })
+} catch (error) {
+    console.log(error);
+} 
