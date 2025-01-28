@@ -131,4 +131,19 @@ try {
         })
 } catch (error) {
     console.log(error);
-} 
+}
+
+
+/**
+ * Iterable contains Promise-like Objects.
+ * Promise-like objects(objects with a `then` method) are treated as promises.
+ * resolve inside arguments is must -> (resolve) => {}.
+ */
+const promiseLikeObj = { then: (resolve) => resolve("promise-like") };
+Promise.all([promiseLikeObj, Promise.resolve("real promise")])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.error(error);
+    });
