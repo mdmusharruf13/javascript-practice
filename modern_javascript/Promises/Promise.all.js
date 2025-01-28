@@ -147,3 +147,12 @@ Promise.all([promiseLikeObj, Promise.resolve("real promise")])
     .catch(error => {
         console.error(error);
     });
+
+
+/**
+ * Duplicate Promises
+ * if the iterable contains the same promise multiple times, the result will include repeated values.
+ */
+const promise = Promise.resolve("duplicate");
+Promise.all([promise, promise])
+    .then(console.log)
