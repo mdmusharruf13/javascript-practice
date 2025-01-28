@@ -95,3 +95,20 @@ Promise.all([Promise.resolve("A"), delayPromise])
     .catch(error => {
         console.error(error);
     });
+
+
+/**
+ * Promise Rejects after delay
+ */
+const delayedRejectedPromise = new Promise((resolve, reject) => {
+    setTimeout(reject, 2000, "rejected promise");
+});
+Promise.all([Promise.resolve("A"), delayedRejectedPromise])
+    .then(value => {
+        console.log(value);
+    }, val => {
+        console.log(val, "- inside this()");
+    })
+    .catch(error => {
+        console.log(error);
+    });
