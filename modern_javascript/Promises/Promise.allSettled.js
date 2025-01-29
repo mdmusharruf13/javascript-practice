@@ -99,3 +99,20 @@ Promise.allSettled([p1, p2, p3])
     .catch(errorMsg => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 7: Handling Nested Promises
+ * If a promise resolve to another promise, Promise.allSettled() waits for the inner promise to settle.
+ */
+
+const p4 = Promise.resolve(40);
+const p5 = new Promise(resolve => setTimeout(() => resolve(Promise.resolve("Nested Promise"))));
+
+Promise.allSettled([p4, p5])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
