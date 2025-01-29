@@ -68,3 +68,34 @@ Promise.allSettled([])
     .catch(errorMsg => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 5: Non-Promise value
+ * If the array contains non-promise values, Promise.allSettled() treats them as resolved promises with the value.
+ */
+const nonPromise = "This is not a promise";
+Promise.allSettled([promise1, nonPromise])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
+
+
+/**
+ * case 6: Mixed Resolved, Rejected and delayed Promises
+ * If some promises resolve or reject after a delay, Promise.allSettled() waits for all promises to settle before resolving.
+ */
+const p1 = new Promise((resolve) => setTimeout(() => resolve("fast"), 100));
+const p2 = new Promise((resolve) => setTimeout(() => resolve("slow"), 300));
+const p3 = new Promise((resolve, reject) => setTimeout(() => reject("Rejected Promise"), 300));
+
+Promise.allSettled([p1, p2, p3])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
