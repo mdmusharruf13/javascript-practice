@@ -37,3 +37,34 @@ Promise.allSettled(promises)
     .catch(error => {
         console.error(error);
     });
+
+
+/**
+ * case 3: Mixed Resolved and Rejected Promises
+ * when some promises resolve and other reject, Promise.allSettled() provides the outcome of all promises, regardless of their status.
+ */
+let promiseArr = [
+    Promise.resolve("Resolved Promise1"),
+    Promise.reject("Error in Promise2"),
+    Promise.resolve("Resolved Promise3")
+]
+Promise.allSettled(promiseArr)
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
+
+
+/**
+ * case 4: Empty Array
+ * If an empty array is passed to Promise.allSettled(), it resolves immediately with an empty array since there are no promises to wait for.
+ */
+Promise.allSettled([])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
