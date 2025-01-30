@@ -47,3 +47,34 @@ Promise.any([promise2, nonPromise])
     }, (errorMsg) => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 4: One Promise already resolved
+ * If one of the promise is already resolved, Promise.any() resolves immediately with its value.
+ */
+const resolvedPromise = Promise.resolve("Already resolved");
+
+Promise.any([promise2, resolvedPromise])
+    .then(result => {
+        console.log(result);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
+
+
+/**
+ * case 5: One Promise already rejected
+ * If one of the promises is already rejected but the others resolve, Promise.any() resolves with the first resolved value.
+ */
+
+const rejectedPromise = Promise.reject("Already rejected");
+
+Promise.any([rejectedPromise, promise2])
+    .then(result => {
+        console.log(result);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
