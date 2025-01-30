@@ -92,3 +92,27 @@ Promise.race([promise1, nonPromise])
     .catch(errorMsg => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 7: Empty Array
+ * If Promise.race() is given an empty array, it returns a promise that never settles because there are no promises to race.
+ */
+Promise.race([])
+    .then(value => console.log(value));
+
+
+/**
+ * case 8: Infinite Promise
+ * If one promise never resolves or rejects, Promise.race() ignores it and resolves/rejects with next fastest settling promise.
+ */
+const p1 = new Promise(() => { });
+const p2 = new Promise((resolve) => setTimeout(() => console.log("Fast resolve"), 100));
+
+Promise.race([p1, p2])
+    .then(result => {
+        console.log(result);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
