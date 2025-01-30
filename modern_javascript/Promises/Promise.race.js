@@ -33,3 +33,33 @@ Promise.race([rejectPromise1])
     .catch(errorMsg => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 3: One Promise is already resolved
+ * If one of the promises in the iterable is already resolved, Promise.race() resolves immediately with its value.
+ */
+let resolveP1 = Promise.resolve("Already resolved");
+
+Promise.race([resolveP1, promise1])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
+
+
+/**
+ * case 4: One Promise is already rejected
+ * If one of the promises in the iteable is already rejected, Promise.race() rejects immediately with its reason.
+ */
+const rejectP1 = Promise.reject("Already rejected");
+
+Promise.race([rejectP1, rejectPromise1])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
