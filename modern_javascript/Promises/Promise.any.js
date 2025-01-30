@@ -20,3 +20,30 @@ Promise.any([promise1, promise2, promise3])
             console.error(errorMsg);
         }
     );
+
+
+/**
+ * case 2: All Promises Reject
+ * If all promises reject, Promise.any() rejects with an AggregateError containing all rejection reasons.
+ */
+
+Promise.any([promise1, promise3])
+    .then(value => {
+        console.log(value);
+    }, error => {
+        console.error(error);
+    });
+
+
+/**
+ * case 3: Non-Promise values
+ * If the iterable contains non-promise values, they are treated as already resolved promises. The first resolved non-promise value is returned.
+ */
+const nonPromise = "Immediate value";
+
+Promise.any([promise2, nonPromise])
+    .then((result) => {
+        console.log(result);
+    }, (errorMsg) => {
+        console.error(errorMsg);
+    });
