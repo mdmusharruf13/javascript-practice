@@ -63,3 +63,32 @@ Promise.race([rejectP1, rejectPromise1])
     .catch(errorMsg => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 5: Mixed Promise
+ * If the fastest promise resolves or rejects, Promise.race() takes that result.
+ */
+
+Promise.race([promise1, rejectPromise1])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
+
+
+/**
+ * case 6: Non-promise value
+ * If the iterable contains non-promise values, they are treated as resolved promises. If a non-promise values is encountered before other promises settle, Promise.race() resolves immediately with that value. 
+ */
+const nonPromise = "non-promise value";
+
+Promise.race([promise1, nonPromise])
+    .then(value => {
+        console.log(value);
+    })
+    .catch(errorMsg => {
+        console.error(errorMsg);
+    });
