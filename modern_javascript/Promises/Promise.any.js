@@ -78,3 +78,14 @@ Promise.any([rejectedPromise, promise2])
     .catch(errorMsg => {
         console.error(errorMsg);
     });
+
+
+/**
+ * case 6: Empty Array
+ * If Promise.any() is passed an empty array, it immediately rejects with an AggreagteError.
+ */
+Promise.any([])
+    .then(() => { }, (error) => {
+        console.log(error instanceof AggregateError);
+        console.log(error.errors);
+    });
