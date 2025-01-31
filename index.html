@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      #div,
-      #form {
-        border: 1px solid black;
+      #list {
+        list-style: none;
         display: flex;
         justify-content: center;
+        gap: 5px;
       }
-      #form,
-      #click-btn {
-        margin: 15px;
+      #list > li {
+        background-color: lightgreen;
+        padding: 5px;
+        min-width: 50px;
+        text-align: center;
       }
     </style>
-    <script src="./javascript_misc/eventCapturing.js" defer></script>
+    <script src="./javascript_misc/eventDeligation.js" defer></script>
   </head>
   <body>
     <section>
@@ -25,13 +27,11 @@
       <button id="btn" title="for throttling">click me</button>
     </section>
     <section>
-      <div id="div">
-        div
-        <form id="form">
-          form
-          <button id="click-btn">click</button>
-        </form>
-      </div>
+      <ul id="list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+      </ul>
     </section>
   </body>
 </html>
