@@ -21,3 +21,35 @@ promise
     })
 
 // Note: Any `.then()` chained after a `.catch()` will always run if the `.catch() handles the error properly.
+
+
+function todoFn(state) {
+    return new Promise((callbackSuccess, callbackReject) => {
+        if (state) {
+            callbackSuccess("success");
+        }
+        else {
+            callbackReject("reject");
+        }
+    });
+}
+
+let promiseResult = todoFn(true);
+
+promiseResult
+    .then((result) => {
+        console.log(result);
+
+        return todoFn(false);
+    })
+    .catch((err) => {
+        console.error(err);
+
+        return "Error caught";
+    })
+    .then((result) => {
+        console.info(result);
+    })
+    .catch((error) => {
+        console.error(error);
+    })
