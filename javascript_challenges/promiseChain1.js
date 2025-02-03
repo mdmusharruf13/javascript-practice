@@ -53,3 +53,31 @@ promiseResult
     .catch((error) => {
         console.error(error);
     })
+
+
+// // // example 3
+function work() {
+    return new Promise((res, rej) => {
+        res();
+    });
+}
+
+work()
+    .then(() => {
+        console.info("success 1");
+        throw new Error("new error");
+    }, () => {
+        console.error("error 0");
+    })
+    .then((res) => {
+        console.info("success 2", res);
+    })
+    .then(() => {
+        console.info("success 3");
+    })
+    .catch(() => {
+        console.error("error 1");
+    })
+    .then(() => {
+        console.info("success 4");
+    })
