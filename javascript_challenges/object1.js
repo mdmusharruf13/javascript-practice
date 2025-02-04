@@ -30,3 +30,31 @@ const transform = (obj) => {
 
 const newObj = transform(magicObj);
 console.log(magicObj, newObj);
+
+// method extraction
+const obj = {
+    value: 42,
+    getValue() {
+        return this.value;
+    }
+}
+
+const obj2 = {
+    value: 100,
+}
+
+const extracted = obj.getValue;
+
+console.log(extracted());
+console.log(obj.getValue());
+console.log(extracted.call(obj2));
+
+// Note: When the method `getValue` is extracted from the `obj`, it loses its binding to the original object
+
+console.log(Object.seal(obj2));
+
+delete obj2.value;
+console.log(obj2);
+
+obj2.val = 525;
+console.log(obj2)
