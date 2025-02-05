@@ -57,4 +57,26 @@ delete obj2.value;
 console.log(obj2);
 
 obj2.val = 525;
-console.log(obj2)
+console.log(obj2);
+
+
+const person = {};
+({ name: person['username'] } = {
+    username: "Musharruf",
+    email: "mush@gmail.com",
+    name: "mush"
+});
+
+console.log(person['username'], person.name);
+
+const demo = { mykey: "myvalue" };
+demo.yourKey = "yourValue";
+console.log(typeof (demo.mykey));
+console.log(typeof (demo.yourKey));
+
+const randomKey = "reandom";
+demo[randomKey] = "random-value";
+
+console.log(demo);
+console.log(demo.randomKey);
+console.log(demo[randomKey]);
