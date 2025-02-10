@@ -51,3 +51,17 @@ var myObject = {
 }
 
 myObject.func();
+
+
+'use strict'  // try without using 'strict' once
+
+function foo() {
+    console.log(this);
+}
+
+function callFoo(fn) {
+    fn();
+}
+
+let ob1 = { foo };
+callFoo(ob1.foo);
