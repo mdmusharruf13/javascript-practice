@@ -17,3 +17,20 @@ console.log(n2);
 
 const { 3: n } = [11, 12, 13, 45, 55];
 console.log(n);
+
+let arr1 = [2, 6, 8, 9, 1, 2, 5];
+console.log(arr1.sort((a, b) => a - b));
+
+
+// duplicating array elements
+// find issue in the code below
+function duplicate(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        arr.push(arr[i]);
+    }
+    return arr;
+}
+
+let array = [1, 2, 3];
+const newArr = duplicate(array);
+console.log(newArr);
