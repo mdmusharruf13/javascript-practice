@@ -38,3 +38,16 @@ callFn();
  * Normal function 'this' points to the object where the function is called.
  * if you want to have arrow function their own 'this', then assign variables using this.variable = value.
  */
+
+var x = 5;
+var y = 5;
+
+function Operations(op1 = x, op2 = y) {
+    this.x = op1;
+    this.y = op2;
+}
+
+Operations.prototype.sum = () => this.x + this.y;
+
+const op = new Operations(10, 20);
+console.log(op.sum());
