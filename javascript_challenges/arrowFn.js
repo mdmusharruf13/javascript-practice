@@ -51,3 +51,19 @@ Operations.prototype.sum = () => this.x + this.y;
 
 const op = new Operations(10, 20);
 console.log(op.sum());
+
+
+const obj1 = {
+    a: 200,
+    b: function () {
+        console.log(this.a);
+        const inner = () => {
+            console.log(this.a);
+        };
+        inner();
+    }
+};
+
+const b = obj1.b;
+b();
+obj1.b();
