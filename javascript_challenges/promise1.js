@@ -14,7 +14,7 @@ promise1.then((result) => {
 console.log("end");
 
 
-// example 1
+// example 2
 const promise2 = new Promise((resolve, reject) => {
     console.log("second 1");
     resolve("completed");
@@ -24,9 +24,21 @@ const promise2 = new Promise((resolve, reject) => {
 });
 
 
-// example 1
+// example 3
 const promise3 = new Promise((resolve, reject) => {
     console.log("third");
 }).then((result) => {
     console.log("third result", result);
 });
+
+
+// example 4
+new Promise((resolve, reject) => {
+    resolve(11);
+    resolve(12);
+    reject(13);
+}).then((value) => {
+    console.log(value);
+}, (error) => {
+    console.error(error);
+})
