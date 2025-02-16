@@ -34,3 +34,7 @@ function duplicate(arr) {
 let array = [1, 2, 3];
 const newArr = duplicate(array);
 console.log(newArr);
+
+let arr2 = [1, 2, 3];
+arr2[10] = 99;
+console.log(arr2.length);
