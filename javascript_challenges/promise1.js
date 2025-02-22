@@ -42,3 +42,32 @@ new Promise((resolve, reject) => {
 }, (error) => {
     console.error(error);
 })
+
+
+// example 5 - check output by commenting all the abvoe codes
+console.log(1);
+const promise4 = new Promise((resolve, reject) => {
+    console.log(2);
+    resolve();
+    console.log(3);
+});
+
+console.log(4);
+
+promise4.then(() => {
+    console.log(5);
+}).then(() => {
+    console.log(6);
+}).catch((err) => {
+    console.log(err);
+})
+
+console.log(7);
+
+setTimeout(() => {
+    console.log(8);
+}, 10);
+
+setTimeout(() => {
+    console.log(9);
+}, 0);
