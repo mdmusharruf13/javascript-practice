@@ -71,3 +71,12 @@ setTimeout(() => {
 setTimeout(() => {
     console.log(9);
 }, 0);
+
+
+// resolved value propagation
+Promise.resolve(1)
+    .then(() => 2)
+    .then(3) // ignored bcoz not a function
+    .then((value) => value * 3)
+    .then(Promise.resolve(4))  // not returned
+    .then(console.log);
