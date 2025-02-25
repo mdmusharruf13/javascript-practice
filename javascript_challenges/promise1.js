@@ -44,7 +44,7 @@ new Promise((resolve, reject) => {
 })
 
 
-// example 5 - check output by commenting all the abvoe codes
+// example 5 - check output by commenting all the above codes
 console.log(1);
 const promise4 = new Promise((resolve, reject) => {
     console.log(2);
@@ -80,3 +80,38 @@ Promise.resolve(1)
     .then((value) => value * 3)
     .then(Promise.resolve(4))  // not returned
     .then(console.log);
+
+
+// example - check the output after commenting the above codes
+Promise.resolve(1)
+    .then(val => {
+        console.log(val);
+        return val + 1;
+    })
+    .then(val => {
+        console.log(val);
+    })
+    .then(val => {
+        console.log(val);
+        return Promise.resolve(3)
+            .then(val => {
+                console.log(val);
+            })
+    })
+    .then(val => {
+        console.log(val);
+        return Promise.reject(4);
+    })
+    .catch(val => {
+        console.log(val);
+        return "javascript"
+    })
+    .finally(val => {  // finally() doesn't takes argument
+        console.log(val);
+        return 10;
+    })
+    .then(val => {
+        console.log(val);
+    })
+
+// Note: The .then() after .finally() recieves the previous resolved or rejected value, not the one returned from .finally()
