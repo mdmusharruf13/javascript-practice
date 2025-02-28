@@ -115,3 +115,23 @@ Promise.resolve(1)
     })
 
 // Note: The .then() after .finally() recieves the previous resolved or rejected value, not the one returned from .finally()
+
+
+// example - check the output after commenting the above codes
+const result = Promise.resolve(3)
+    .then(val => {
+        console.log(val);
+    });
+
+console.log(result.then(val => console.log(val)));
+
+const p1 = Promise.resolve(1);
+const p2 = new Promise((resolve) => resolve(p1));
+const p3 = Promise.resolve(p1);
+const p4 = p2.then(() => new Promise((resolve) => resolve(p3)));
+const p5 = p4.then(() => p4);
+
+console.log(p1 == p2);
+console.log(p1 == p3);
+console.log(p3 == p4);
+console.log(p4 == p5);
