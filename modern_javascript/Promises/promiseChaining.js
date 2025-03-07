@@ -11,9 +11,13 @@ const myPromise = new Promise((resolve, reject) => {
 
 myPromise
     .then(result => {
+        console.log(result)
         return result + "B";
     })
-    .then(result => result + "C")
+    .then(result => {
+        console.log(result)
+        return result + "C"
+    })
     .then(finalResult => {
         console.log(finalResult);
     })
