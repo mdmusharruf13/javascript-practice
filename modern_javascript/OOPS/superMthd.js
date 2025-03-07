@@ -10,15 +10,16 @@ class Bike {
 }
 
 class SuperBike extends Bike {
-    constructor() {
-        super();
+    constructor(speed, gear, id) {
+        super(speed, gear);
+        this.id = id
     }
     getMaxSpeed() {
-        return `SuperBike max speed is ${this.speed}kmph.`;
+        return `SuperBike max speed is ${this.speed}kmph. with id ${this.id}`;
     }
 }
 
-const myBike = new SuperBike(110, 6);
+const myBike = new SuperBike(110, 6, 98);
 console.log(myBike.getCurrentSpeed());
 console.log(myBike.getMaxSpeed());
 

@@ -64,7 +64,7 @@ class Car {
     }
 
     static compare(car1, car2) {
-        return car1.brand === car2.breand ? 'same brand' : 'different brands';
+        return car1.brand === car2.brand ? 'same brand' : 'different brands';
     }
 
     static getCarsList() {
