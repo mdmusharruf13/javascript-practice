@@ -7,6 +7,20 @@ const map = new Map();
 map.set("name", "mush");
 map.set("age", 25);
 
-const age = map.find(obj => {
-    console.log(obj);
-});
+console.log(map);
+
+const mapResult = Array.from(map);
+console.log(mapResult);
+
+const res = mapResult.find(arr => arr[1] == 25);
+console.log(res);
+
+
+const obj = [
+    { name: 'mush', age: 20 },
+    { name: 'nawaz', age: 50 },
+    { name: 'habibi', age: 70 }
+];
+
+const objResult = obj.find((singleObj) => singleObj.age > 50);
+console.log(objResult);
