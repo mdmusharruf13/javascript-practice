@@ -72,9 +72,9 @@ const user1 = {
     }
 }
 
-checkPswd(user1.loginSuccessful, user1.loginFailure);
+checkPswd(user1.loginSuccessful, user1.loginFailure);  // passing function definitions
 
-checkPswd(user1.loginSuccessful.bind(user1), user1.loginFailure.bind(user1));
+checkPswd(user1.loginSuccessful.bind({ name: "habibi" }), user1.loginFailure.bind(user1));
 
 checkPswd(() => { user1.loginSuccessful() }, () => { user1.loginFailure() });
 
@@ -88,3 +88,29 @@ const user2 = {
 
 
 checkPswd(user2.login.bind(user2, true), user2.login.bind(user2, false));
+
+
+// call method
+const myobj = {
+    name: "musharruf",
+    age: 20,
+}
+
+class UtilClass {
+
+    constructor(name, age) {
+        this.name = name || "default name";
+        this.age = age || "default age";
+    }
+    printDetails() {
+        console.log(this.name, " ", this.age);
+    }
+
+}
+
+
+const utilObj = new UtilClass("musharruf nawaz", 25);
+utilObj.printDetails();
+
+
+utilObj.printDetails.call(myobj);
