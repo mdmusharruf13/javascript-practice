@@ -1,15 +1,15 @@
 const demoFn = () => {
-    name = "md musharruf";
+    fname = "md musharruf"; // assigned to globally object
     age = 50;
     const func1 = () => {
-        console.log(this.name + ", " + this.age);
+        console.log(this?.fname + ", " + this?.age);
         const nestedFunc = () => {
-            console.log(this.age, " not available");
+            console.log(this.age, " from lexical environment");
         }
         nestedFunc()
     }
     function func2() {
-        console.log(this.name + ", " + this.age);
+        console.log(this?.fname + ", " + this?.age);
     }
     func1()
     func2()
@@ -20,7 +20,7 @@ demoFn();
 
 function callFn() {
     lang = "javascript";
-    age = 25;
+    age = 25; // modified global variable
     const func1 = () => {
         console.log(this.lang, "is language");
     }
@@ -33,11 +33,11 @@ function callFn() {
 }
 callFn();
 
-/**
- * Arrow function don't have their own 'this' they borrow it from their parent.
- * Normal function 'this' points to the object where the function is called.
- * if you want to have arrow function their own 'this', then assign variables using this.variable = value.
- */
+// /**
+//  * Arrow function don't have their own 'this' they borrow it from their parent.
+//  * Normal function 'this' points to the object where the function is called.
+//  * if you want to have arrow function their own 'this', then assign variables using this.variable = value.
+//  */
 
 var x = 5;
 var y = 5;
@@ -64,6 +64,6 @@ const obj1 = {
     }
 };
 
-const b = obj1.b;
+const b = obj1.b; // only function definition
 b();
 obj1.b();
