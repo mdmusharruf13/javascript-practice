@@ -1,0 +1,8 @@
+Arrow functions
+Classes
+Default Parameters
+Destructuring
+let and const
+Maps
+Sets
+Template Literals
